@@ -1,0 +1,31 @@
+.card-img-top:hover {
+  cursor: pointer;
+}
+
+.card {
+  opacity: 1;
+}
+
+.card:hover {
+  opacity: 1.2;
+  transform: scale(1.15);
+}
+
+.fa-heart {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: rgb(255, 20, 71);
+  border-color: black;
+}
+
+.fa-heart:hover{
+  color: red;
+  animation: jump 1s ease 0s infinite normal none;
+}
+
+@keyframes jump {
+  50% {
+    transform: scale(0.8);
+    color: darkred;
+  }
