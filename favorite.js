@@ -15,9 +15,9 @@ function displayUserList(data) {
     rawHtml += `
     <div class="card m-3" style="width: 15rem;">
       <img class="card-img-top" src="${item.avatar}" data-id="${item.id} "alt="Card image cap" data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-heart fa-2x" data-id=${item.id}></i>
       <div class="card-body text-center">
         <h5 class="card-title">${item.name} ${item.surname}</h5>
-      
       </div>
     </div>
     `;
@@ -40,12 +40,18 @@ modalFooter.addEventListener('click', (event) => {
   }
 })
 
-function  removeFavorite (id) {
-  if(!users) return // 如果users = 0的時候(代表為空陣列)是 false，加上!後會變成true
+dataPanel.addEventListener("click", function clickModal(event) {
+  if (event.target.matches(".fas")) {
+    removeFavorite(Number(event.target.dataset.id))
+  }
+});
+
+function removeFavorite(id) {
+  if (!users || users.length === 0) return // 如果users = 0的時候(代表為空陣列)是 false，加上!後會變成true
 
   const usersIndex = users.findIndex((user) => user.id === id)
 
-  if(usersIndex === -1) return //代表沒找到
+  if (usersIndex === -1) return //代表沒找到
 
   users.splice(usersIndex, 1)
   localStorage.setItem('favoriteUser', JSON.stringify(users))
@@ -75,10 +81,10 @@ function showDetail(id) {
     `;
 
     modalFooter.innerHTML = `
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     <button id="delete-button" type="button" class="btn btn-danger" data-id="${data.id}" data-dismiss="modal">
       Delete
     </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
     `
   });
 }

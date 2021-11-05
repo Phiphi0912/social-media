@@ -1,9 +1,86 @@
+.header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  max-height: 50px;
+  z-index: 100;
+}
+
+body {
+  background-color: rgb(236, 241, 250);
+}
+
+@media screen and (max-width: 994px) {
+  .form-inline {
+    display: none;
+  }
+}
+
+.fa-search {
+  position: relative;
+  right: 50px;
+}
+
+
+.fa-users {
+  color: rgb(161, 189, 243);
+  padding: 2px;
+  border-radius: 15px;
+}
+
+.fa-home {
+  color: rgb(161, 189, 243);
+}
+
+.fa-venus-mars {
+  color: rgb(161, 189, 243);
+}
+
+.fa-grin-hearts {
+  color: rgb(161, 189, 243);
+}
+
+.nav-link {
+  color: white;
+}
+
+
+@media screen and (max-width: 985px) {
+  .nav-link {
+    display: none;
+  }
+}
+
+.carousel {
+  margin-top: 20px;
+}
+
+.carousel-inner {
+  height: 500px;
+  width: 100%;
+}
+
+
+.user-box {
+  margin-top: 50px;
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  overflow: hidden;
+}
+
 .card-img-top:hover {
   cursor: pointer;
 }
 
 .card {
+  border: 1px solid black;
   opacity: 1;
+  border-radius: 10%;
+  overflow: hidden;
 }
 
 .card:hover {
@@ -14,7 +91,7 @@
 .fa-heart {
   position: absolute;
   top: 3px;
-  right: 3px;
+  right: 9px;
   color: rgb(255, 20, 71);
   border-color: black;
 }
@@ -29,3 +106,20 @@
     transform: scale(0.8);
     color: darkred;
   }
+}  
+
+.arrow {
+  width:50px;
+  height:50px;
+  background-color:#949494;
+  position:fixed;
+  bottom:100px;
+  right:150px;
+  font-size:19pt;
+  align-items: flex-end;
+  text-align:center;
+  color:#FFF;
+  text-decoration:none;
+  border-radius: 50%;
+}
+
