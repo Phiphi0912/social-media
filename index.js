@@ -1,5 +1,3 @@
-// 2.3.4.8已解決
-// 5 目前想不到解法，6現在是點擊性別後將filterUsers陣列清空
 const baseUrl = "https://lighthouse-user-api.herokuapp.com";
 const indexUrl = baseUrl + "/api/v1/users/";
 const dataPanel = document.querySelector("#data-panel");
@@ -60,16 +58,6 @@ function favoriteHeart(data) {
     })
   })
 }
-//   allHeart.forEach((heart) => { 
-//     data.forEach((item) => { 
-//       if (Number(heart.dataset.id) === item.id) { 
-//         // console.log('success')
-//         heart.classList.add('fas')
-//         heart.classList.remove('far')
-//       }
-//     })
-//   })
-// }
 
 // 在dataPanel上設置監聽器，當觸發後去取得按鈕上的ID以利辨識，並調用函式
 dataPanel.addEventListener("click", function clickModal(event) {
@@ -117,11 +105,11 @@ searchInput.addEventListener('input', function searchInputForm(event) {
   const text = searchInput.value.trim().toLowerCase()
 
   if (manUsers.length > 0) {  // 利用各自陣列的長度來判斷使用者目前在哪個頁面進行搜尋，可能是men、female或是整體的名單
-    textComparison(manUsers, text) //姓跟名分開判斷
+    textComparison(manUsers, text)
   } else if (femaleUsers.length > 0) {
-    textComparison(femaleUsers, text) //姓跟名分開判斷
+    textComparison(femaleUsers, text)
   } else {
-    textComparison(users, text) //姓跟名分開判斷
+    textComparison(users, text)
   }
 
   if (filteredUsers.length === 0) {
@@ -129,11 +117,6 @@ searchInput.addEventListener('input', function searchInputForm(event) {
     return alert('Please enter a correct keyword：' + text)
   }
 
-  // filteredUsers = users.filter((user) => {
-  //   if (user.name.trim().toLowerCase().includes(text) || user.surname.trim().toLowerCase().includes(text)) return true  //姓跟名分開判斷
-  //   // const userName = user.name.trim().toLowerCase() + user.surname.trim().toLowerCase()  //把姓跟名合在一起，然後去判斷
-  //   // return userName.includes(text)
-  // })
   renderPaginator(filteredUsers.length) //這裡是將搜尋結果也製作相對應的分頁長度
   displayUserList(userPerPage(1))
   favoriteHeart(list)
@@ -158,7 +141,6 @@ modalFooter.addEventListener('click', function addToFavorite(event) {
 
 // 處理加入好友
 function addFavorite(id) {
-  // const list = JSON.parse(localStorage.getItem('favoriteUser')) || []
   const user = users.find((user) => user.id === id)
 
   if (list.some((user) => user.id === id)) {
@@ -173,7 +155,6 @@ function addFavorite(id) {
 
 // 將每頁呈現的資料數量進行切割
 function userPerPage(page) {
-  // let data = filteredUsers.length ? filteredUsers : users //當有進行搜尋(會將結果存進 filteredUsers 使其length > 0)時，會回傳filteredUsers，否則就是回傳users
   let data
   if (filteredUsers.length > 0) {
     data = filteredUsers
